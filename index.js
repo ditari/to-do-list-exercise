@@ -24,6 +24,13 @@ app.get("/", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+  let query2 = `select * from Todolist where day = "Tuesday";`;
+  try {
+    const [results, fields] = await connection.query(query2);
+    weeks["tuesday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
 
   res.render("index.ejs", { weeks: weeks });
 });
