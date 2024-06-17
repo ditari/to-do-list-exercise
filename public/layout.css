@@ -4,7 +4,10 @@ html, body{
 }
 
 .item{
-    display:flex;
+   
+  display: flex;
+  align-items: center;
+
 }
 
 h5{
@@ -22,6 +25,11 @@ h5{
     background: none;
   }
 
+  box {
+    height: 20px;
+    align-items: center;
+
+  }
   /*
   input{
     background-color: transparent;

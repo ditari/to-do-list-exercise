@@ -13,8 +13,6 @@
     <div class="row">    
     <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: violet;">
         <h5>Monday</h5>
-        
-  
             
         <% weeks.monday.forEach((item) => { %>
         <div class="item">
@@ -22,7 +20,8 @@
                 <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>">
             </form>
 
-            <p id="job<%=item.id%>"> <%= item.job %> </p>
+            <div id="job<%=item.id%>" style="align-items: end; padding-left: 5px;"> <%= item.job %> </div>
+            
             <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
                 <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
             
@@ -41,7 +40,7 @@
         <div class="item">
         <button id="buttonMonday" onclick="addAppear('Monday')" class="iconbutton">
             <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
-        <p id="textMonday">Add new task</p>
+        <div id="textMonday" style="align-items: end;">Add new task</div>
         </div>
 
         <form class="item" action="/add" method="post">
