@@ -13,24 +13,30 @@
     <div class="row">    
     <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: violet;">
         <h5>Monday</h5>
-        <div class="item">
+        
   
             
         <% weeks.monday.forEach((item) => { %>
-            
+            <div class="item">
             <form action="/delete" method="post">
                 <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>">
             </form>
 
-            <%= item.job %> <br>
-            
+            <p><%= item.job %> </p>
+            </div>
         <%  }); %> 
+        
+        <div class="item">
+        <button id="buttonMonday" onclick="addAppear('Monday')" >+</button>    
+        <p id="textMonday">Add new task</p>
         </div>
 
         <form class="item" action="/add" method="post">
-            <input type="text" name="newtask" placeholder="New Task" />
+            <input id="newtaskMonday" type="text" hidden="true" name="newtask"/>
             <input type="hidden" name="day" value="Monday">
-            <button type="submit">+</button>
+            <button id="addMonday" type="submit" hidden="true">OK</button>
+            <button id="cancelMonday" hidden="true" onclick="removeAppear('Monday')" hidden="true">Cancel</button>
+
         </form>
 
 
@@ -87,7 +93,24 @@
     </div>
     </div>    
 </div>
-    
+    <script>
+        function addAppear(day){
+            document.getElementById("text" + day).setAttribute("hidden", true);
+            document.getElementById("button" + day).setAttribute("hidden", true);
+            document.getElementById("newtask" + day).removeAttribute("hidden");
+            document.getElementById("add" + day).removeAttribute("hidden");
+            document.getElementById("cancel"+day).removeAttribute("hidden");
+        }
+
+        function removeAppear(){
+            document.getElementById("text" + day).removeAttribute("hidden");
+            document.getElementById("button" + day).removeAttribute("hidden");
+            document.getElementById("newtask" + day).setAttribute("hidden", true);;
+            document.getElementById("add" + day).setAttribute("hidden", true);
+            document.getElementById("cancel"+day).setAttribute("hidden", true);
+        }
+
+    </script>
 
 </body>
 </html>

@@ -6,3 +6,7 @@ html, body{
 .item{
     display:flex;
 }
+
+h5{
+    text-align: center;
+}
