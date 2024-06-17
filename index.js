@@ -55,6 +55,20 @@ app.post("/add", async (req, res) => {
   res.redirect("/");
 });
 
+app.post("/edit", async (req, res) => {
+  let edittask = req.body.newjob;
+  let id = req.body.edit_id;
+  let query = `update todolist set job="${edittask}" where id=${id};`;
+  try {
+    const [results, fields] = await connection.query(query);
+  } catch (err) {
+    console.log(err);
+  }
+  res.redirect("/");
+});
+
+
+
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
