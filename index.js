@@ -15,6 +15,21 @@ const connection = await mysql.createConnection({
   database: "TestDatabase",
 });
 
+function getcurrenttime()
+{
+  let date = new Date();
+  let h = date.getHours();
+  let m = date.getMinutes();
+  let hh = "" + h;
+  let mm = "" + m;
+  if (h < 10) 
+      hh = "0"+ h;
+  if (m   <   10)
+      mm = "0"+ m;
+ let currenttime = hh + ":" +mm;
+ return currenttime;
+}
+
 app.get("/", async (req, res) => {
   let weeks = {};
   let query1 = `select * from Todolist where day = "Monday";`;
@@ -31,9 +46,51 @@ app.get("/", async (req, res) => {
   } catch (err) {
     console.log(err);
   }
+  let query3 = `select * from Todolist where day = "Wednesday";`;
+  try {
+    const [results, fields] = await connection.query(query3);
+    weeks["wednesday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
+  let query4 = `select * from Todolist where day = "Thursday";`;
+  try {
+    const [results, fields] = await connection.query(query4);
+    weeks["thursday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
+  let query5 = `select * from Todolist where day = "Friday";`;
+  try {
+    const [results, fields] = await connection.query(query5);
+    weeks["friday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
+  let query6 = `select * from Todolist where day = "Saturday";`;
+  try {
+    const [results, fields] = await connection.query(query6);
+    weeks["saturday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
 
-  res.render("index.ejs", { weeks: weeks });
+  let query7 = `select * from Todolist where day = "Sunday";`;
+  try {
+    const [results, fields] = await connection.query(query7);
+    weeks["sunday"] = results;
+  } catch (err) {
+    console.log(err);
+  }
+
+  let date = new Date();
+  let today = date.toLocaleDateString();
+  let currenttime = getcurrenttime();
+
+  res.render("index.ejs", { weeks: weeks, today:today, time:currenttime });
 });
+
+
 
 app.post("/delete", async (req, res) => {
   let id = req.body.delete_id;

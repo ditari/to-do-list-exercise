@@ -12,8 +12,8 @@
     <div class="container-fluid">
     <div class="row">    
     <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="day" style="border-color: #f94144;">
-        <h5 style="color:#f94144">Monday</h5>
+        <div class="day" style="border-color: #b60854;">
+        <h5 style="color:#b60854">Monday</h5>
         
         <%if (weeks.monday.length > 0) {%>
         <% weeks.monday.forEach((item) => { %>
@@ -58,8 +58,8 @@
     </div>
     </div>    
     <div class="col-sm-6 col-md-4 col-lg-3">
-        <div class="day" style="border-color: #f3722c;">
-            <h5 style="color:#f3722c">Tuesday</h5>
+        <div class="day" style="border-color: #2962ff;">
+            <h5 style="color:#2962ff">Tuesday</h5>
             
             <%if (weeks.tuesday.length > 0) {%>
             <% weeks.tuesday.forEach((item) => { %>
@@ -105,48 +105,249 @@
             
     
     </div>    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: yellow;">
-        Rabu
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
-    </div>    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: green;">
-        Kamis
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+        <div class="day" style="border-color: #9500ff;">
+            <h5 style="color:#9500ff">Wednesday</h5>
+            
+            <%if (weeks.wednesday.length > 0) {%>
+            <% weeks.wednesday.forEach((item) => { %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
+                </form>
+    
+                <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
+                
+                <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
+                    <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
+                
+                <form action="/edit" method = "post">
+                <input type="hidden" name="edit_id" value="<%= item.id %>"">    
+                <input id="newjob<%=item.id%>" type="text" hidden="true" name="newjob" value="<%=item.job%>"/>
+                <button id="submitedit<%=item.id%>" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button> 
+                </form>    
+    
+                <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </div>
+            <%  }); %>
+           <% } %>
+    
+            <div class="item">
+            <button id="buttonWednesday" onclick="addAppear('Wednesday')" style="background: none; border: none;">
+                <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
+            <div id="textWednesday" style="align-items: end;">Add new task</div>
+            </div>
+    
+            <form class="item" action="/add" method="post">
+                <input id="newtaskWednesday" type="text" hidden="true" name="newtask" />
+                <input type="hidden" name="day" value="Wednesday">
+                <button id="addWednesday" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
+                <button id="cancelWednesday" hidden="true" onclick="addRemove('Wednesday')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </form>
+    
+        </div>
+    
+        </div>    
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+        <div class="day" style="border-color: #208b3a;">
+            <h5 style="color:#208b3a">Thursday</h5>
+            
+            <%if (weeks.thursday.length > 0) {%>
+            <% weeks.thursday.forEach((item) => { %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
+                </form>
+    
+                <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
+                
+                <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
+                    <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
+                
+                <form action="/edit" method = "post">
+                <input type="hidden" name="edit_id" value="<%= item.id %>"">    
+                <input id="newjob<%=item.id%>" type="text" hidden="true" name="newjob" value="<%=item.job%>"/>
+                <button id="submitedit<%=item.id%>" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button> 
+                </form>    
+    
+                <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </div>
+            <%  }); %>
+           <% } %>
+    
+            <div class="item">
+            <button id="buttonThursday" onclick="addAppear('Thursday')" style="background: none; border: none;">
+                <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
+            <div id="textThursday" style="align-items: end;">Add new task</div>
+            </div>
+    
+            <form class="item" action="/add" method="post">
+                <input id="newtaskThursday" type="text" hidden="true" name="newtask" />
+                <input type="hidden" name="day" value="Thursday">
+                <button id="addThursday" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
+                <button id="cancelThursday" hidden="true" onclick="addRemove('Thursday')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </form>
+    
+        </div>
+    
+    
     </div>    
 
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: black;">
-        Jumat
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+        <div class="day" style="border-color: #555555;">
+            <h5 style="color:#555555">Friday</h5>
+            
+            <%if (weeks.friday.length > 0) {%>
+            <% weeks.friday.forEach((item) => { %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
+                </form>
+    
+                <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
+                
+                <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
+                    <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
+                
+                <form action="/edit" method = "post">
+                <input type="hidden" name="edit_id" value="<%= item.id %>"">    
+                <input id="newjob<%=item.id%>" type="text" hidden="true" name="newjob" value="<%=item.job%>"/>
+                <button id="submitedit<%=item.id%>" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button> 
+                </form>    
+    
+                <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </div>
+            <%  }); %>
+           <% } %>
+    
+            <div class="item">
+            <button id="buttonFriday" onclick="addAppear('Friday')" style="background: none; border: none;">
+                <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
+            <div id="textFriday" style="align-items: end;">Add new task</div>
+            </div>
+    
+            <form class="item" action="/add" method="post">
+                <input id="newtaskFriday" type="text" hidden="true" name="newtask" />
+                <input type="hidden" name="day" value="Friday">
+                <button id="addFriday" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
+                <button id="cancelFriday" hidden="true" onclick="addRemove('Friday')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </form>
+    
+        </div>
+    
+    
     </div>    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: purple;">
-        Sabtu
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+        <div class="day" style="border-color: #ec6116;">
+            <h5 style="color:#ec6116">Saturday</h5>
+            
+            <%if (weeks.saturday.length > 0) {%>
+            <% weeks.saturday.forEach((item) => { %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
+                </form>
+    
+                <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
+                
+                <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
+                    <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
+                
+                <form action="/edit" method = "post">
+                <input type="hidden" name="edit_id" value="<%= item.id %>"">    
+                <input id="newjob<%=item.id%>" type="text" hidden="true" name="newjob" value="<%=item.job%>"/>
+                <button id="submitedit<%=item.id%>" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button> 
+                </form>    
+    
+                <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </div>
+            <%  }); %>
+           <% } %>
+    
+            <div class="item">
+            <button id="buttonSaturday" onclick="addAppear('Saturday')" style="background: none; border: none;">
+                <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
+            <div id="textSaturday" style="align-items: end;">Add new task</div>
+            </div>
+    
+            <form class="item" action="/add" method="post">
+                <input id="newtaskSaturday" type="text" hidden="true" name="newtask" />
+                <input type="hidden" name="day" value="Saturday">
+                <button id="addSaturday" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
+                <button id="cancelSaturday" hidden="true" onclick="addRemove('Saturday')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </form>
+    
+        </div>
+    
+    
     </div>    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: gray;">
-        Minggu
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+        <div class="day" style="border-color: #003488;">
+            <h5 style="color:#003488">Sunday</h5>
+            
+            <%if (weeks.sunday.length > 0) {%>
+            <% weeks.sunday.forEach((item) => { %>
+            <div class="item">
+                <form action="/delete" method="post">
+                    <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
+                </form>
+    
+                <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
+                
+                <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
+                    <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
+                
+                <form action="/edit" method = "post">
+                <input type="hidden" name="edit_id" value="<%= item.id %>"">    
+                <input id="newjob<%=item.id%>" type="text" hidden="true" name="newjob" value="<%=item.job%>"/>
+                <button id="submitedit<%=item.id%>" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button> 
+                </form>    
+    
+                <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </div>
+            <%  }); %>
+           <% } %>
+    
+            <div class="item">
+            <button id="buttonSunday" onclick="addAppear('Sunday')" style="background: none; border: none;">
+                <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
+            <div id="textSunday" style="align-items: end;">Add new task</div>
+            </div>
+    
+            <form class="item" action="/add" method="post">
+                <input id="newtaskSunday" type="text" hidden="true" name="newtask" />
+                <input type="hidden" name="day" value="Sunday">
+                <button id="addSunday" type="submit" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
+                <button id="cancelSunday" hidden="true" onclick="addRemove('Sunday')" hidden="true" class="iconbutton">
+                    <img class="icon" src="/assets/x.svg" alt="wrong"></button>
+            </form>
+    
+        </div>
+    
+    
     </div>    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: orange;">
-        Kontainer kosong
-        <br>Text here 
-        <br>Text here
-        <br>Text here 
-        <br>Text here
+    <div class="col-sm-6 col-md-4 col-lg-3" >
+      <h3>  <%=today%> </h3>
+      <h3>  <%=time%> </h3>
     </div>
     </div>    
 </div>
