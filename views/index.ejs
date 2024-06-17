@@ -14,7 +14,8 @@
     <div class="col-sm-6 col-md-4 col-lg-3">
         <div class="day" style="border-color: #f94144;">
         <h5 style="color:#f94144">Monday</h5>
-            
+        
+        <%if (weeks.monday.length > 0) {%>
         <% weeks.monday.forEach((item) => { %>
         <div class="item">
             <form action="/delete" method="post">
@@ -36,8 +37,9 @@
             <button id="canceledit<%=item.id%>" onclick="editRemove('<%=item.id%>')" hidden="true" class="iconbutton">
                 <img class="icon" src="/assets/x.svg" alt="wrong"></button>
         </div>
-        <%  }); %> 
-        
+        <%  }); %>
+       <% } %>
+
         <div class="item">
         <button id="buttonMonday" onclick="addAppear('Monday')" style="background: none; border: none;">
             <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
