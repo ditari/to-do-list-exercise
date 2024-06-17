@@ -10,3 +10,21 @@ html, body{
 h5{
     text-align: center;
 }
+
+.icon {
+    height: 20px;
+  }
+
+.iconbutton {
+    margin-left: 0px;
+    margin-right: 20px;
+    border: none;
+    background: none;
+  }
+
+  /*
+  input{
+    background-color: transparent;
+    border:transparent;
+    border-bottom: black 2px; 
+  }*/
