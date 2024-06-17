@@ -25,11 +25,14 @@ h5{
     background: none;
   }
 
-  box {
-    height: 20px;
-    align-items: center;
+.day{
+  border-radius: 5px;
+  border: 2px solid;
+  padding : 10px;
+  margin: 10px;
+} 
 
-  }
+.custom-checkbox{margin-left: 10px; }
   /*
   input{
     background-color: transparent;

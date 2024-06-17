@@ -11,16 +11,17 @@
 <body>
     <div class="container-fluid">
     <div class="row">    
-    <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: violet;">
-        <h5>Monday</h5>
+    <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="day" style="border-color: #f94144;">
+        <h5 style="color:#f94144">Monday</h5>
             
         <% weeks.monday.forEach((item) => { %>
         <div class="item">
             <form action="/delete" method="post">
-                <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>">
+                <input type="checkbox" onchange="this.form.submit()" name="delete_id" value="<%= item.id %>" class="custom-checkbox">
             </form>
 
-            <div id="job<%=item.id%>" style="align-items: end; padding-left: 5px;"> <%= item.job %> </div>
+            <div id="job<%=item.id%>" style="align-items: end; padding-left: 10px;"> <%= item.job %> </div>
             
             <button id="edit<%=item.id%>" onclick="editAppear('<%=item.id%>')" class="iconbutton">
                 <img class="icon" src="/assets/pencil.svg" alt="pencil image"> </button>
@@ -38,7 +39,7 @@
         <%  }); %> 
         
         <div class="item">
-        <button id="buttonMonday" onclick="addAppear('Monday')" class="iconbutton">
+        <button id="buttonMonday" onclick="addAppear('Monday')" style="background: none; border: none;">
             <img class="icon" src="/assets/plus.svg" alt="plus"> </button>    
         <div id="textMonday" style="align-items: end;">Add new task</div>
         </div>
@@ -52,7 +53,7 @@
                 <img class="icon" src="/assets/x.svg" alt="wrong"></button>
         </form>
 
-
+    </div>
     </div>    
     <div class="col-sm-6 col-md-4 col-lg-3" style="background-color: blue;">
         Selasa
