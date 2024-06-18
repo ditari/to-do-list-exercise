@@ -51,7 +51,7 @@
         </div>
 
         <form class="item" action="/add" method="post">
-            <input id="newtaskMonday" type="text" hidden="true" name="newtask" />
+            <input id="newtaskMonday" type="text" hidden="true" name="newtask" class="addnewtask" />
             <input type="hidden" name="day" value="Monday">
             <button id="addMonday" type="submit" hidden="true" class="iconbutton">
                 <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -97,7 +97,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskTuesday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskTuesday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Tuesday">
                 <button id="addTuesday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -145,7 +145,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskWednesday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskWednesday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Wednesday">
                 <button id="addWednesday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -192,7 +192,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskThursday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskThursday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Thursday">
                 <button id="addThursday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -241,7 +241,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskFriday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskFriday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Friday">
                 <button id="addFriday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -289,7 +289,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskSaturday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskSaturday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Saturday">
                 <button id="addSaturday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -337,7 +337,7 @@
             </div>
     
             <form class="item" action="/add" method="post">
-                <input id="newtaskSunday" type="text" hidden="true" name="newtask" />
+                <input id="newtaskSunday" type="text" hidden="true" name="newtask" class="addnewtask" />
                 <input type="hidden" name="day" value="Sunday">
                 <button id="addSunday" type="submit" hidden="true" class="iconbutton">
                     <img class="icon" src="/assets/check.svg" alt="checkmark"></button>
@@ -355,7 +355,10 @@
     </div>
     </div>    
 </div>
+
+<%- include("footer.ejs") %>
     <script>
+        
         function addAppear(day){
             document.getElementById("text" + day).setAttribute("hidden", true);
             document.getElementById("button" + day).setAttribute("hidden", true);
