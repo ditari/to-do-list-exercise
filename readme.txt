@@ -4,4 +4,4 @@ Node.js, Express and EJS
 HTML, CSS and Bootstrap
 MySQL database
 Git
-Javascript
+Jquery
